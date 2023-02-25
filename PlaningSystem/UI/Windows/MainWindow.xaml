@@ -1,0 +1,34 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PlaningSystem"
+        xmlns:Themes="clr-namespace:PlaningSystem.Themes"
+        x:Class="PlaningSystem.MainWindow"
+        mc:Ignorable="d"
+        Title="Planner" Height="450" Width="800" WindowStyle="ThreeDBorderWindow">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Menu Grid.Row="0">
+            <MenuItem Header="Настройки">
+                <MenuItem Header="Данные"/>
+                <MenuItem Header="Загрузить"/>
+            </MenuItem>
+        </Menu>
+
+
+        <StackPanel Grid.Row="1" Orientation="Vertical">
+            <local:PlannerChart x:Name="Planner" Margin="0, 20, 0, 20"/>
+
+
+        </StackPanel>
+
+
+
+    </Grid>
+</Window>
