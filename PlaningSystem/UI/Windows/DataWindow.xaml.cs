@@ -1,16 +1,8 @@
-﻿using System;
+﻿using PlaningSystem.Models;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Data;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace PlaningSystem
 {
@@ -19,9 +11,58 @@ namespace PlaningSystem
     /// </summary>
     public partial class DataWindow : Window
     {
-        public DataWindow()
+        List<List<MachinDetail>> MachinsDetails = null;
+        
+        public DataWindow(List<List<MachinDetail>> MachinDetails)
         {
+            if(MachinDetails == null)
+            {
+                throw new ArgumentException("MachineDetails argument cant be value equals null");
+            }
+            this.MachinsDetails = MachinDetails;
+
+
             InitializeComponent();
+
+
+            InitDataTable();
         }
+
+        void InitDataTable()
+        {
+            DataTable data = new DataTable();
+
+            if (MachinsDetails.Count > 0 && MachinsDetails[0].Count > 0) 
+            {
+                foreach (var item in MachinsDetails[0])
+                {
+                    data.Columns.Add(item.detail.Name, typeof(double));
+                }
+
+                foreach (var machin in MachinsDetails)
+                {
+                    data.Rows.Add();
+                    foreach (var machineDetail in machin)
+                    {
+                        data.Rows[data.Rows.Count - 1][machineDetail.detail.Name] = machineDetail.Duration;
+                    }
+                }
+            }
+            SettingDataGrid.ItemsSource = data.DefaultView;
+        }
+
+
+
+        private void Btn_AddMachine_Click(object sender, RoutedEventArgs e)
+        {
+            List<MachinDetail> machinDetails = new List<MachinDetail>();
+        }
+
+        private void Btn_AddDetail_Click(object sender, RoutedEventArgs e)
+        {
+            MachinDetail machinDetail = new MachinDetail();
+        }
+
+        
     }
 }

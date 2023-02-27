@@ -4,15 +4,34 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PlaningSystem"
+        xmlns:models="clr-namespace:PlaningSystem.Models"
+        xmlns:col="clr-namespace:System.Collections.Generic;assembly=mscorlib"
         mc:Ignorable="d"
         Title="DataWindow" Height="450" Width="800">
-    <Grid>
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Grid.Row" Value="0"/>
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="Padding" Value="5"/>
+        </Style>
+    </Window.Resources>
+    <Grid x:Name="MainFrame">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        
-        <DataGrid Grid.Row="1" />
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <DataGrid x:Name="SettingDataGrid" Grid.Row="1" Grid.ColumnSpan="{Binding ColumnDefinitions.Count, ElementName=MainFrame, Mode=OneWay}"
+                  ItemsSource="{Binding}" AutoGenerateColumns="True" CanUserAddRows="False" CanUserDeleteRows="False">
+        </DataGrid>
+
+        <Button x:Name="Btn_AddMachine" Grid.Column="0" Click="Btn_AddMachine_Click" ToolTip="Add new row">Add machine</Button>
+        <Button x:Name="Btn_AddDetail" Grid.Column="1" Click="Btn_AddDetail_Click" ToolTip="Add new column">Add detail</Button>
 
     </Grid>
 </Window>

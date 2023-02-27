@@ -21,72 +21,35 @@ namespace PlaningSystem
     /// </summary>
     public partial class MainWindow : Window
     {
+        List<List<MachinDetail>> MachinDetails = new List<List<MachinDetail>>();
+
         public MainWindow()
         {
             InitializeComponent();
 
-            var firstDetail = new Detail
+            MachinDetails.Add(new List<MachinDetail>
             {
-                Name = "HelloWorld",
-                Brush = new SolidColorBrush(Color.FromRgb(200, 50, 2))
-            };
-            var secondDetail = new Detail
-            {
-                Name = "Lyayayayayayaya",
-                Brush = new SolidColorBrush(Color.FromRgb(0, 200, 2))
-            };
-
-            Planner.MachinDetails = new List<List<MachinDetail>>
-            {
-
-                new List<MachinDetail> {
-                    new MachinDetail
-                    {
-                        detail = firstDetail,
-                        Duration = 30,
-                    },
-                    new MachinDetail
-                    {
-                        detail = secondDetail,
-                        Duration =9,
-                    }
+                new MachinDetail
+                {
+                    detail = new Detail{ Name = "Hello"},
+                    Duration = 10
                 },
+                new MachinDetail
+                {
+                    detail = new Detail{ Name = "World"},
+                    Duration = 2
+                },
+            });
+        }
 
-                new List<MachinDetail> {
-                    new MachinDetail
-                    {
-                        detail = firstDetail,
-                        Duration = 3,
-                    },
-                    new MachinDetail
-                    {
-                        detail = secondDetail,
-                        Duration =4,
-                    }
-                }
-            };
+        private void MenuItem_DataSettings_Click(object sender, RoutedEventArgs e)
+        {
+            new DataWindow(MachinDetails).ShowDialog();
+        }
 
-            Planner.MachineNames = new List<string> { "First" };
+        private void MenuItem_LoadData_Click(object sender, RoutedEventArgs e)
+        {
 
-            //MPlanner.Details = new List<MachinDetail> { new MachinDetail {
-            //    detail = new Detail
-            //    {
-            //        Name = "HelloWorld",
-            //        Brush = new SolidColorBrush(Color.FromRgb(200, 50, 2))
-            //    },
-            //    Duration = 3,
-            //    StartUnit = 1
-            //},
-            //new MachinDetail {
-            //    detail = new Detail
-            //    {
-            //        Name = "Lyayayayayayaya",
-            //        Brush = new SolidColorBrush(Color.FromRgb(0, 200, 2))
-            //    },
-            //    Duration =9,
-            //    StartUnit = 5
-            //}
-            //};
         }
     }
 }

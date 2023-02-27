@@ -24,15 +24,15 @@ namespace PlaningSystem
     /// </summary>
     public partial class PlannerChart : UserControl
     {
-        List<List<MachinDetail>> machinDetails = new List<List<MachinDetail>>();
+        List<List<MachinDetail>> machineDetails = new List<List<MachinDetail>>();
         private int unitSize = 20;
 
         public List<List<MachinDetail>> MachinDetails
         {
-            get => machinDetails;
+            get => machineDetails;
             set
             {
-                machinDetails = value;
+                machineDetails = value;
                 changed = true;
                 InvalidateVisual();
             }
@@ -47,6 +47,13 @@ namespace PlaningSystem
                 changed = true;
                 InvalidateVisual();
             } 
+        }
+        public void SetData(List<List<MachinDetail>> machineDetails, List<int> order)
+        {
+            this.machineDetails = machineDetails;
+            this.order = order;
+            changed = true;
+            InvalidateVisual();
         }
 
         List<string> machineNames = new List<string>();
@@ -88,11 +95,11 @@ namespace PlaningSystem
             controls.RemoveRange(1, controls.Count - 1);
             machinPlanners.Clear();
             counter = 0;
-            if (machinDetails.Count == 0)
+            if (machineDetails.Count == 0)
                 return;
 
             List<double> endPoints = new List<double>();
-            for (int i = 0; i < machinDetails.Count; i++)
+            for (int i = 0; i < machineDetails.Count; i++)
             {
                 var planner = new MachinPlannerControl();
                 planner.SizeChanged += Planner_SizeChanged;
@@ -103,7 +110,7 @@ namespace PlaningSystem
                 }
                 machinPlanners.Add(planner);
                 controls.Add(planner);
-                var details = machinDetails[i];
+                var details = machineDetails[i];
                 if(endPoints != null && endPoints.Count > 0)
                 {
                     for (int j = 0; j < endPoints.Count; j++)
@@ -138,7 +145,7 @@ namespace PlaningSystem
                     maxNameWidth = box.ActualWidth;
                 counter++;
                 
-                if(counter == machinDetails.Count)
+                if(counter == machineDetails.Count)
                 {
                     scale.Margin = new Thickness(maxNameWidth, 0, 0, 5);
                     double width = maxNameWidth + scale.ActualWidth;

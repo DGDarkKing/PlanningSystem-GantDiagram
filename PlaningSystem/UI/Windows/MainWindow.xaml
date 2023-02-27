@@ -16,8 +16,8 @@
 
         <Menu Grid.Row="0">
             <MenuItem Header="Настройки">
-                <MenuItem Header="Данные"/>
-                <MenuItem Header="Загрузить"/>
+                <MenuItem x:Name="MenuItem_DataSettings" Click="MenuItem_DataSettings_Click" Header="Данные"/>
+                <MenuItem x:Name="MenuItem_LoadData" Click="MenuItem_LoadData_Click" Header="Загрузить"/>
             </MenuItem>
         </Menu>
 
