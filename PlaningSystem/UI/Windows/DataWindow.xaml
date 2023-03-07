@@ -4,7 +4,6 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PlaningSystem"
-        xmlns:models="clr-namespace:PlaningSystem.Models"
         xmlns:col="clr-namespace:System.Collections.Generic;assembly=mscorlib"
         mc:Ignorable="d"
         Title="DataWindow" Height="450" Width="800" Closing="Window_Closing">
