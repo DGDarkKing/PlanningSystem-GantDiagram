@@ -1,21 +1,9 @@
-﻿using PlaningSystem.Models;
-using PlaningSystem.Themes;
-using System;
+﻿using PlaningSystem.Themes;
 using System.Collections.Generic;
-using System.Diagnostics.Metrics;
-using System.Linq;
-using System.Text;
-using System.Threading.Channels;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using PLuginsData.Models;
 
 namespace PlaningSystem
 {
@@ -102,6 +90,7 @@ namespace PlaningSystem
             for (int i = 0; i < machineDetails.Count; i++)
             {
                 var planner = new MachinPlannerControl();
+                planner.MachineName = $"Машина {i + 1}";
                 planner.SizeChanged += Planner_SizeChanged;
                 planner.HorizontalAlignment = HorizontalAlignment.Left;
                 if(i < machineNames.Count)
@@ -110,12 +99,23 @@ namespace PlaningSystem
                 }
                 machinPlanners.Add(planner);
                 controls.Add(planner);
+
                 var details = machineDetails[i];
                 if(endPoints != null && endPoints.Count > 0)
                 {
-                    for (int j = 0; j < endPoints.Count; j++)
+                    if(order!=null && order.Count > 0)
                     {
-                        details[j].StartUnit = endPoints[j] / unitSize;
+                        for (int j = 0; j < endPoints.Count; j++)
+                        {
+                            details[order[j]].StartUnit = endPoints[j] / unitSize;
+                        }
+                    }
+                    else
+                    {
+                        for (int j = 0; j < endPoints.Count; j++)
+                        {
+                            details[j].StartUnit = endPoints[j] / unitSize;
+                        }
                     }
                 }
                 planner.SetDetailsOrder(details, order);

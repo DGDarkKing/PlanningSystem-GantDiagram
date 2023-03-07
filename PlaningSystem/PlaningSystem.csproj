@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Logic\" />
+    <ProjectReference Include="..\PLuginsData\PLuginsData.csproj" />
   </ItemGroup>
 
 </Project>

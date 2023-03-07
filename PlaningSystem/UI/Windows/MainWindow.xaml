@@ -17,16 +17,31 @@
         <Menu Grid.Row="0">
             <MenuItem Header="Настройки">
                 <MenuItem x:Name="MenuItem_DataSettings" Click="MenuItem_DataSettings_Click" Header="Данные"/>
-                <MenuItem x:Name="MenuItem_LoadData" Click="MenuItem_LoadData_Click" Header="Загрузить"/>
+                <MenuItem x:Name="MenuItem_Upload" Click="MenuItem_Upload_Click" Header="Загрузить"/>
+                <MenuItem x:Name="MenuItem_DownloadData" Click="MenuItem_DownloadData_Click" Header="Выгрузить"/>
+            </MenuItem>
+            
+            <MenuItem Header="Решения">
+                <MenuItem x:Name="MenuItem_AddPlugin" Click="MenuItem_AddPlugin_Click" Header="Добавить плагин"/>
+                
+                <MenuItem Header="Встроенные">
+                    <MenuItem x:Name="MenuItem_NoPlanning" Click="MenuItem_NoPlanning_Click" Header="Построить без планрования"/>
+                    <MenuItem x:Name="MenuItem_MinProc_FirstMAchine" Click="MenuItem_MinProc_FirstMAchine_Click" Header="Быстрое введени второй машины"/>
+                    <MenuItem x:Name="MenuItem_MaxProc_LastMachine" Click="MenuItem_MaxProc_LastMachine_Click" Header="Убывание по конечной машине"/>
+                    <MenuItem x:Name="MenuItem_Bottelneck" Click="MenuItem_Bottelneck_Click" Header="Узкое место"/>
+                </MenuItem>
+                
+                <MenuItem x:Name="MenuItem_SolverPlugins" Header="Добавленные" Visibility="Hidden"/>
             </MenuItem>
         </Menu>
 
 
         <StackPanel Grid.Row="1" Orientation="Vertical">
-            <local:PlannerChart x:Name="Planner" Margin="0, 20, 0, 20"/>
+            <local:PlannerChart x:Name="PlannerChart_Gant" Margin="0, 20, 0, 20"/>
 
 
         </StackPanel>
+        <Border BorderBrush="Black" BorderThickness="1"/>
 
 
 

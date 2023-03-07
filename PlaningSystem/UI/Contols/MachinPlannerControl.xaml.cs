@@ -1,18 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
+using PLuginsData.Models;
 using System.Windows.Shapes;
-using PlaningSystem.Models;
 
 namespace PlaningSystem.Themes
 {
@@ -148,6 +141,7 @@ namespace PlaningSystem.Themes
         {
             if(machinDetail.Duration == 0)
             {
+                endPoints.Add(0);
                 return null;
             }
 
@@ -166,7 +160,8 @@ namespace PlaningSystem.Themes
             rectangle.RenderTransform = new TranslateTransform(start.X, start.Y);
             rectangle.HorizontalAlignment = HorizontalAlignment.Left;
             rectangle.Width = machinDetail.Duration * unitSize;
-            rectangle.Fill = machinDetail.detail.Brush;
+            var color = machinDetail.detail.ColorBrush;
+            rectangle.Fill = new SolidColorBrush(Color.FromRgb(color.R, color.G, color.B));
             rectangle.ToolTip = machinDetail.detail.Name;
 
             endPoints.Add(start.X + machinDetail.Duration * unitSize);
