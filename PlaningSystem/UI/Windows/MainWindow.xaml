@@ -16,8 +16,8 @@
         <Menu Grid.Row="0">
             <MenuItem Header="Настройки">
                 <MenuItem x:Name="MenuItem_DataSettings" Click="MenuItem_DataSettings_Click" Header="Данные"/>
-                <MenuItem x:Name="MenuItem_Upload" Click="MenuItem_Upload_Click" Header="Загрузить"/>
-                <MenuItem x:Name="MenuItem_DownloadData" Click="MenuItem_DownloadData_Click" Header="Выгрузить"/>
+                <MenuItem x:Name="MenuItem_DownloadData" Click="MenuItem_DownloadData_Click" Header="Загрузить"/>
+                <MenuItem x:Name="MenuItem_Upload" Click="MenuItem_Upload_Click" Header="Выгрузить"/>
             </MenuItem>
             
             <MenuItem Header="Решения">
