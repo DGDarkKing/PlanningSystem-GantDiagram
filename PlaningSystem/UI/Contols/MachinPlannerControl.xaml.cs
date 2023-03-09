@@ -67,34 +67,7 @@ namespace PlaningSystem.Themes
             InvalidateVisual();
         }
 
-        private void CalculateEndPoints()
-        {
-            Bars = new List<Rectangle>();
-            endPoints = new List<double>();
-
-            if (order == null || order.Count == 0)
-            {
-                foreach (var item in details)
-                {
-                    var bar = CreateBar(item);
-                    if (bar != null)
-                    {
-                        Bars.Add(bar);
-                    }
-                }
-            }
-            else
-            {
-                foreach (var index in order)
-                {
-                    var bar = CreateBar(details[index]);
-                    if (bar != null)
-                    {
-                        Bars.Add(bar);
-                    }
-                }
-            }
-        }
+       
 
         List<double> endPoints = new List<double>();
         public List<double> EndPoints { get => endPoints; }
@@ -137,11 +110,36 @@ namespace PlaningSystem.Themes
             }
         }
 
+        // TODO: Consider the case when the next machine has not previous detail
+        private void CalculateEndPoints()
+        {
+            Bars = new List<Rectangle>();
+            endPoints = new List<double>();
+
+            if (order == null || order.Count == 0)
+            {
+                order = new(Enumerable.Range(0, details.Count));
+            }
+
+            foreach (var index in order)
+            {
+                var bar = CreateBar(details[index]);
+                if (bar != null)
+                {
+                    Bars.Add(bar);
+                }
+            }
+        }
+
+
         private Rectangle CreateBar(MachinDetail machinDetail)
         {
             if(machinDetail.Duration == 0)
             {
-                endPoints.Add(0);
+                if(endPoints.Count == 0)
+                    endPoints.Add(0);
+                else
+                    endPoints.Add(endPoints[endPoints.Count-1]);
                 return null;
             }
 

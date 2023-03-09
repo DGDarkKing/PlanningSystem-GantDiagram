@@ -1,10 +1,10 @@
 ﻿using PLuginsData.Models;
 using System.Collections.Generic;
 
-namespace PlaningSystem.Logic
+namespace DefaultPlanners
 {
 
-    class Pair<T, V>
+    public class Pair<T, V>
     {
         public T Key;
         public V Value;
@@ -13,7 +13,7 @@ namespace PlaningSystem.Logic
     }
 
 
-    class BottelneckPlanner : IPlanner
+    public class BottelneckPlanner : IPlanner
     {
         List<List<MachinDetail>>? _machinesDetails;
         public List<List<MachinDetail>>? MachinesDetails { get => _machinesDetails; set => _machinesDetails = value; }
@@ -59,5 +59,7 @@ namespace PlaningSystem.Logic
                 return order;
             }
         }
+
+        public string Name => "Узкое место";
     }
 }

@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace PlaningSystem.Logic
+namespace DefaultPlanners
 {
-    class MinProc_FirstMachinePlanner : IPlanner
+    public class MinProc_FirstMachinePlanner : IPlanner
     {
         List<List<MachinDetail>>? _machinesDetails;
         public List<List<MachinDetail>>? MachinesDetails { get => _machinesDetails; set => _machinesDetails = value; }
@@ -25,5 +25,6 @@ namespace PlaningSystem.Logic
                 return order;
             }
         }
+        public string Name => "Быстрое введени второй машины";
     }
 }

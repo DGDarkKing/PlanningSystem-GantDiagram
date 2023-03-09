@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace PlaningSystem.Logic
+namespace DefaultPlanners
 {
-    class MaxProc_LastMachinePlanner : IPlanner
+    public class MaxProc_LastMachinePlanner : IPlanner
     {
         List<List<MachinDetail>>? _machinesDetails;
         public List<List<MachinDetail>>? MachinesDetails { get => _machinesDetails; set => _machinesDetails = value; }
@@ -26,5 +26,6 @@ namespace PlaningSystem.Logic
                 return order;
             }
         }
+        public string Name => "Убывание по конечной машине";
     }
 }
