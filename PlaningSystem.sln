@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlaningSystem", "PlaningSys
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PLuginsData", "PLuginsData\PLuginsData.csproj", "{D1C1E817-4A23-410E-A702-70D32914EA75}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DefaultPlanners", "DefaultPlanners\DefaultPlanners.csproj", "{62CC4D12-B417-4CC4-9790-FACA19BA4EFC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DefaultPlanners", "DefaultPlanners\DefaultPlanners.csproj", "{62CC4D12-B417-4CC4-9790-FACA19BA4EFC}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup", "Setup\Setup.vdproj", "{1496F15A-C7C8-444C-ADAE-134258DC4DFF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -83,6 +85,16 @@ Global
 		{62CC4D12-B417-4CC4-9790-FACA19BA4EFC}.Release|x64.Build.0 = Release|Any CPU
 		{62CC4D12-B417-4CC4-9790-FACA19BA4EFC}.Release|x86.ActiveCfg = Release|Any CPU
 		{62CC4D12-B417-4CC4-9790-FACA19BA4EFC}.Release|x86.Build.0 = Release|Any CPU
+		{1496F15A-C7C8-444C-ADAE-134258DC4DFF}.Debug|Any CPU.ActiveCfg = Debug
+		{1496F15A-C7C8-444C-ADAE-134258DC4DFF}.Debug|ARM.ActiveCfg = Debug
+		{1496F15A-C7C8-444C-ADAE-134258DC4DFF}.Debug|ARM64.ActiveCfg = Debug
+		{1496F15A-C7C8-444C-ADAE-134258DC4DFF}.Debug|x64.ActiveCfg = Debug
+		{1496F15A-C7C8-444C-ADAE-134258DC4DFF}.Debug|x86.ActiveCfg = Debug
+		{1496F15A-C7C8-444C-ADAE-134258DC4DFF}.Release|Any CPU.ActiveCfg = Release
+		{1496F15A-C7C8-444C-ADAE-134258DC4DFF}.Release|ARM.ActiveCfg = Release
+		{1496F15A-C7C8-444C-ADAE-134258DC4DFF}.Release|ARM64.ActiveCfg = Release
+		{1496F15A-C7C8-444C-ADAE-134258DC4DFF}.Release|x64.ActiveCfg = Release
+		{1496F15A-C7C8-444C-ADAE-134258DC4DFF}.Release|x86.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
